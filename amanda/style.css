@@ -133,6 +133,12 @@ a:hover {
   margin-left: 10px;
 }
 
+.article_container .tag .icon {
+  width: 18px;
+  height: 18px;
+  margin: 0 5px 0 0;
+}
+
 .article_container .title {
   margin: 0 0 15px;
   font-size: 18px;
@@ -150,6 +156,16 @@ a:hover {
 .article_card a:hover .title,
 .article_card .read_more .icon {
   color: var(--primaryColor);
+}
+
+.article_container .read_more .icon {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+
+.article_card a:hover .read_more .icon {
+  display: inline;
 }
 
 #footer {
