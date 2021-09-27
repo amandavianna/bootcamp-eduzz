@@ -1,0 +1,151 @@
+:root {
+  --border-radius: 8px;
+  --primaryColor: #d53a9d;
+  --secondaryColor: #111;
+  --backgroundColor: #fff;
+  --textColor: #888;
+  --borderColor: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-family: 'Verdana', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+::selection {
+  color: #fff;
+  background-color: var(--primaryColor);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primaryColor);
+}
+
+a:hover {
+  opacity: 0.66;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.logo {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--secondaryColor);
+  font-weight: 700;
+}
+
+#container {
+  margin: 0 auto;
+  padding: 30px 50px 50px;
+}
+
+.article_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.article_card a {
+  color: inherit;
+  border: 1px solid var(--borderColor);
+  border-radius: var(--border-radius);
+  position: relative;
+  min-height: 100%;
+}
+
+.article_card a:hover {
+  opacity: 1;
+}
+
+.article_thumbnail {
+  display: flex;
+  justify-content: center;
+}
+
+.article_thumbnail .image {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: 0 center;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.article_container {
+  padding: 10px;
+}
+
+.article_container .tag {
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.article_container .tag li {
+  display: flex;
+  align-items: center;
+}
+
+.article_container .tag li:nth-child(n + 2) {
+  margin-left: 10px;
+}
+
+.article_container .title {
+  margin: 0 0 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--secondaryColor);
+}
+
+.article_container .read_more {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  color: var(--primaryColor);
+}
+
+.article_card a:hover .title,
+.article_card .read_more .icon {
+  color: var(--primaryColor);
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  border-top: 1px solid var(--borderColor);
+}
+
+.contacts_list {
+  list-style-type: none;
+  margin: 0 0 5px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contacts_list li {
+  margin: 0 10px 0 0;
+}
+
+.copyright {
+  font-size: 12px;
+}
