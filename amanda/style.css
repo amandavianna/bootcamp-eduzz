@@ -88,16 +88,51 @@ a:hover {
   flex-direction: column;
 }
 
-.article_card a {
+.article_card > a {
   color: inherit;
   border: 1px solid var(--borderColor);
   border-radius: var(--border-radius);
   position: relative;
   min-height: 100%;
+  transform: perspective(100px) translateZ(0px);
 }
 
-.article_card a:hover {
+.article_card > a:hover {
   opacity: 1;
+}
+
+.article_card > a::before,
+.article_card > a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: transform 1s linear 0s, border-radius .5s ease-out .7s;
+}
+
+.article_card > a::before {
+  border-left: 1px solid var(--primaryColor);
+  border-right: 1px solid var(--primaryColor);
+  transform: scaleY(0);
+}
+
+.article_card > a::after {
+  border-top: 1px solid var(--primaryColor);
+  border-bottom: 1px solid var(--primaryColor);
+  transform: scaleX(0);
+}
+
+.article_card > a:hover::before,
+.article_card > a:hover::after {
+  border-radius: var(--border-radius);
+}
+
+.article_card > a:hover::before {
+  transform: scaleY(1);
+}
+
+.article_card > a:hover::after {
+  transform: scaleX(1);
 }
 
 .article_thumbnail {
