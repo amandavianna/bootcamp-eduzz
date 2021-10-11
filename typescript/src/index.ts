@@ -1,1 +1,2 @@
 import './generalTypes'
+import './interfaces'
