@@ -10,3 +10,5 @@
 - JavaScript ES6 essencial
 - Desenvolvimento avançado com JavaScript ES6
 - Introdução ao TypeScript: Explorando Classes, Tipos e Interfaces
+- Resolvendo Desafios de Código em Javascript
+- Desafios iniciais em JavaScript
