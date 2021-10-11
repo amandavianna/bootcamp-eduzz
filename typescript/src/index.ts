@@ -1,1 +1,1 @@
-console.log("TypeScript")
+import './generalTypes'
