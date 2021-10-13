@@ -1,27 +1,50 @@
-body {
+* {
   margin: 0;
-  background-color: rgb(288, 255, 239);
+  padding: 0;
 }
 
-.main-game {
+body {
+  margin: 0;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(27,27,27);
+  background: radial-gradient(circle, rgba(27,27,27,1) 10%, rgba(0,0,0,1) 100%);
+}
+
+button {
+  cursor: pointer;
+  border-width: 1px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+button:active {
+  border-style: inset;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mainGame {
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
-.genius {
+.coloredButtons {
   display: grid;
   grid-template-areas:
     'verde vermelho'
     'amarelo azul';
-  grid-gap: 10px;
-  border: 1px solid #fff;
-  background-color: #fff;
+  grid-gap: 15px;
   border-radius: 100%;
-  width: 700px;
-  height: 700px;
+  width: 500px;
+  height: 500px;
 }
 
 .blue {
@@ -49,5 +72,40 @@ body {
 }
 
 .selected {
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.controls {
+  background: rgb(27,27,27);
+  background: radial-gradient(circle, rgba(27,27,27,1) 50%, rgba(0,0,0,1) 100%);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.title {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.startButton {
+  background-color: rgba(27,27,27,1);
+  color: #fff;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.startButton:hover:not(:disabled) {
+  opacity: 0.5;
 }

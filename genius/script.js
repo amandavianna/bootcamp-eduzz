@@ -7,59 +7,54 @@ let score = 0
 // 2 - amarelo
 // 3 - azul
 
+const coloredButtons = document.querySelectorAll('.coloredButtons > button')
 const blue = document.querySelector('.blue')
 const red = document.querySelector('.red')
 const yellow = document.querySelector('.yellow')
 const green = document.querySelector('.green')
 
-//Cria ordem aleatória de cores
-let shuffleOrder = () => {
-  // Math.floor(x) - Retorna o maior inteiro que é menor ou igual a um número.
-  // Math.random() - Retorna um número pseudo-aleatório entre 0 e 1.
-  // 4 - Vai sortear um número entre 0 e 3.
-  let colorOrder = Math.floor(Math.random() * 4)
+const startButton = document.querySelector('.startButton')
+const message = document.querySelector('.message')
+const numberScore = document.querySelector('.numberScore')
 
-  //Atribui o índice do array com a cor que sair da função de sorteio
+const shuffleOrder = () => {
+  let colorOrder = Math.floor(Math.random() * coloredButtons.length)
   order[order.length] = colorOrder
 
   clickedOrder = []
 
-  //Acende a cor que corresponde ao número sorteado
   for(let i in order) {
     let elementColor = createColorElement(order[i])
     lightColor(elementColor, Number(i) + 1)
   }
 }
 
-//Acende a próxima cor
-let lightColor = (element, number) => {
-  number = number * 500
+const lightColor = (element, number) => {
+  number *= 500
   setTimeout(() => {
     element.classList.add('selected')
   }, number - 250)
 
   setTimeout(() => {
     element.classList.remove('selected')
-  })
+  }, number)
 }
 
-//Checa se os botões clicados são os mesmos da ordem gerada no jogo
-let checkOrder = () => {
+const checkOrder = () => {
   for(let i in clickedOrder) {
-    if(clickedOrder[i] != order[i]) {
+    if(clickedOrder[i] !== order[i]) {
       gameOver()
       break
     }
   }
 
-  if(clickedOrder.length == order.length) {
-    alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`)
+  if(clickedOrder.length === order.length) {
+    numberScore.innerHTML = score
     nextLevel()
   }
 }
 
-//Função para o clique do usuário
-let click = (color) => {
+const click = (color) => {
   clickedOrder[clickedOrder.length] = color
   createColorElement(color).classList.add('selected')
 
@@ -67,50 +62,58 @@ let click = (color) => {
     createColorElement(color).classList.remove('selected')
     checkOrder()
   }, 250)
-
 }
 
-//Função que retorna a cor
-let createColorElement = (color) => {
-  if(color == 0) {
-    return green
-  } else if (color == 1) {
-    return red
-  } else if (color == 2) {
-    return yellow
-  } else if (color == 3) {
-    return blue
+const createColorElement = (color) => {
+  switch (color) {
+    case 0:
+      return green
+    case 1:
+      return red
+    case 2:
+      return yellow
+    case 3:
+      return blue
   }
 }
 
-//Função para próximo nível do jogo
-let nextLevel = () => {
+const nextLevel = () => {
   score++
   shuffleOrder()
 }
 
-//Função para game over
-let gameOver = () => {
-  alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo.`)
+const gameOver = () => {
+  message.innerHTML = 'Game over!'
+
+  startButton.removeAttribute('disabled')
+  disabledColoredButtons()
+
+}
+
+const playGame = () => {
+  message.innerHTML = 'Play Game'
+
+  score = 0
   order = []
   clickedOrder = []
 
-  playGame()
-}
-
-//Função do início do jogo
-let playGame = () => {
-  alert('Bem vindo ao Genius! Iniciando novo jogo!')
-  score = 0
+  startButton.setAttribute('disabled', 'disabled')
+  enableColoredButtons()
 
   nextLevel()
 }
 
-//Eventos de clique para as cores
+const enableColoredButtons = () => {
+  coloredButtons.forEach(item => item.removeAttribute('disabled'))
+}
+
+const disabledColoredButtons = () => {
+  coloredButtons.forEach(item => item.setAttribute('disabled', null))
+}
+
 green.onclick = () => click(0)
 red.onclick = () => click(1)
 yellow.onclick = () => click(2)
 blue.onclick = () => click(3)
 
-//Início do jogo
-playGame()
+startButton.onclick = () => playGame()
