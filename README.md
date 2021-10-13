@@ -12,3 +12,4 @@
 - Introdução ao TypeScript: Explorando Classes, Tipos e Interfaces
 - Resolvendo Desafios de Código em Javascript
 - Desafios iniciais em JavaScript
+- Criando seu jogo de memória estilo Genius
