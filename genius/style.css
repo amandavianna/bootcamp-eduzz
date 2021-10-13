@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(27,27,27);
+  background: radial-gradient(circle, rgba(27,27,27,1) 10%, rgba(0,0,0,1) 100%);
+}
+
+button {
+  cursor: pointer;
+  border-width: 1px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+button:active {
+  border-style: inset;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mainGame {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.coloredButtons {
+  display: grid;
+  grid-template-areas:
+    'verde vermelho'
+    'amarelo azul';
+  grid-gap: 15px;
+  border-radius: 100%;
+  width: 500px;
+  height: 500px;
+}
+
+.blue {
+  grid-area: azul;
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+.red {
+  grid-area: vermelho;
+  background-color: red;
+  border-top-right-radius: 100%;
+}
+
+.yellow {
+  grid-area: amarelo;
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+}
+
+.green {
+  grid-area: verde;
+  background-color: green;
+  border-top-left-radius: 100%;
+}
+
+.selected {
+  opacity: 0.7;
+}
+
+.controls {
+  background: rgb(27,27,27);
+  background: radial-gradient(circle, rgba(27,27,27,1) 50%, rgba(0,0,0,1) 100%);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.title {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.startButton {
+  background-color: rgba(27,27,27,1);
+  color: #fff;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.startButton:hover:not(:disabled) {
+  opacity: 0.5;
+}
